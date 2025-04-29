@@ -10,7 +10,7 @@ ________________________________________________________________________________
     2. open your working folder in IDE then CD into the git root folder
        
    ```
-    git clone https://github.com/21vincentchu/team-16-stock-data-visualizer.git
+    git clone https://github.com/21vincentchu/Team-16-FinalProject.git
     cd team-16-stock-data-visualizer
    ``` 
 
