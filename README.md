@@ -11,7 +11,7 @@ ________________________________________________________________________________
        
    ```
     git clone https://github.com/21vincentchu/Team-16-FinalProject.git
-    cd team-16-stock-data-visualizer
+    cd Team-16-FinalProject
    ``` 
 
 3. Create a virtual environment in command line so make sure we are running all the same packages, and same python with the same libraries. Type these commands
