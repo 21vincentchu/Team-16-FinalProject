@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: team16_final_project_image
+    container_name: team16_final_project
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/reservation_app
+    environment:
+      FLASK_DEBUG: "1"
