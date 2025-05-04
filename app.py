@@ -68,6 +68,40 @@ def calculate_total_sales():
     return 1
 
 #Routes
+# index route
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+# Admin login GET route
+@app.route('/admin-login', methods=("GET", ))
+def login_get():
+    return render_template('login.html')
+
+# Admin login POST route
+@app.route('/admin-login', methods=("POST", ))
+def login_post():
+    # gather form values
+    admin_username = request.form.get('admin_username')
+    admin_password = request.form.get('admin_password')
+
+    # validate results are not empty.
+    if not admin_password or not admin_username: 
+        flash("Fields cannot be empty. Please enter a Username and Password.")
+        return render_template('login.html')
+    
+    # compare results to those on file
+    admin = Admin.query.filter_by(username=admin_username).first()
+
+    # validate password
+    if admin and (admin.password == admin_password):
+        # return render_template('')
+        flash("Login successful!")
+        return render_template('login.html')
+         # ****************************************************** THIS WILL NEED TO BE IMPLEMENTED WITH ADMIN PAGE
+    else:
+        flash("Invalid username/password.")
+        return render_template('login.html')
 
 
 #Run Program

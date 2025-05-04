@@ -1,0 +1,118 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
+  <diagram name="Page-1" id="_4QQNEHL7tAUw8eurmDD">
+    <mxGraphModel dx="581" dy="315" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-1" value="&lt;b&gt;Reservation System&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="10" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-2" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="280" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-7" value="Create Seating Chart/Load Initial Reservations" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="355" y="90" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-8" value="Admin Log In" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="355" y="280" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-9" value="System" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="95" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-10" value="Display Main Menu" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="355" y="180" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-12" value="Display Admin Page" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="355" y="375" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-13" value="Display Reservation Page" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="355" y="470" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-14" value="Display Seat Chart" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="410" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-15" value="Calculate total sales for the flight" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="320" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-23" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=-0.009;entryY=0.581;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Z90uPVKZ_cEF84Kbefng-12" target="Z90uPVKZ_cEF84Kbefng-15">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="480" y="430" as="sourcePoint" />
+            <mxPoint x="640" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-25" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.004;entryY=0.604;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Z90uPVKZ_cEF84Kbefng-13" target="Z90uPVKZ_cEF84Kbefng-14">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="510" y="534" as="sourcePoint" />
+            <mxPoint x="614" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-26" value="Create and Print&lt;div&gt;Reservation Code&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="500" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-27" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0;entryY=0.429;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="Z90uPVKZ_cEF84Kbefng-26">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="500" y="500" as="sourcePoint" />
+            <mxPoint x="611" y="462" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-28" value="Insert Reservation to SQLite Database" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="580" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-29" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0;entryY=0.429;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="Z90uPVKZ_cEF84Kbefng-28" source="Z90uPVKZ_cEF84Kbefng-13">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="500" y="580" as="sourcePoint" />
+            <mxPoint x="611" y="542" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-30" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z90uPVKZ_cEF84Kbefng-2" target="Z90uPVKZ_cEF84Kbefng-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="490" y="350" as="sourcePoint" />
+            <mxPoint x="540" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-31" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z90uPVKZ_cEF84Kbefng-2" target="Z90uPVKZ_cEF84Kbefng-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="75" y="320" as="sourcePoint" />
+            <mxPoint x="365" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-32" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="Z90uPVKZ_cEF84Kbefng-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="65" y="310" as="sourcePoint" />
+            <mxPoint x="365" y="225" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-33" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z90uPVKZ_cEF84Kbefng-2" target="Z90uPVKZ_cEF84Kbefng-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="75" y="320" as="sourcePoint" />
+            <mxPoint x="365" y="325" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-34" value="Validate Credentials" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="150" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-35" value="Display Login Error Message" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="230" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-36" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=-0.009;entryY=0.581;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.919;exitY=0.202;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="Z90uPVKZ_cEF84Kbefng-8">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="496" y="239.5" as="sourcePoint" />
+            <mxPoint x="560" y="190.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-37" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.983;exitY=0.367;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="Z90uPVKZ_cEF84Kbefng-8" target="Z90uPVKZ_cEF84Kbefng-35">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="494" y="304" as="sourcePoint" />
+            <mxPoint x="570" y="200.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z90uPVKZ_cEF84Kbefng-38" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z90uPVKZ_cEF84Kbefng-9" target="Z90uPVKZ_cEF84Kbefng-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="330" as="sourcePoint" />
+            <mxPoint x="810" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
