@@ -1,2 +1,25 @@
 {% extends 'base.html' %}
 
+{% block content %}
+    {% if logged_in %}
+        <h1>Administrator Dashboard</h1>
+    {% else %}
+        <h1>Administrator Login</h1>
+    {% endif %}
+
+    <hr>
+    <form method="post">
+        <label for="admin_username">Username</label>
+        <input type="text" id="admin_username" name="admin_username">
+        <label for="admin_password">Password</label>
+        <input type="text" id="admin_password" name="admin_password">
+
+        <button type="submit">Login</button> 
+    </form>
+{% endblock %}
+
+<!--
+This page is a basic administrator login/dashboard page, with a form
+for a username and password. 
+Method = POST
+-->
