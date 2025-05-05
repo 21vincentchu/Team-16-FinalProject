@@ -92,6 +92,38 @@ def index():
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
+    # gather form values
+    admin_username = request.form.get('admin_username')
+    admin_password = request.form.get('admin_password')
+
+    # validate results are not empty.
+    if not admin_password or not admin_username: 
+        flash("Fields cannot be empty. Please enter a Username and Password.")
+        return render_template('admin.html')
+    
+    # compare results to those on file
+    admin = Admin.query.filter_by(username=admin_username).first()
+
+    # validate password
+    if admin and (admin.password == admin_password):
+        # get seating chart
+        seating_chart = get_seating_chart()
+
+        # get reservation list
+        reservation_list = Reservation.query.all()
+
+        # return render_template('')
+        flash("Login successful!")
+        return render_template('admin.html', logged_in=True, seating_chart=seating_chart, reservation_list=reservation_list)
+    else:
+        flash("Invalid username/password.")
+        return render_template('admin.html')
+    
+    
+'''
+#Claires admin route
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -99,7 +131,10 @@ def admin():
         if admin:
             return redirect(url_for('admin_dashboard'))
         flash('Invalid username/password combination')
-    return render_template('admin.html')
+    return render_template('admin_login.html')
+
+#Admin Route after Login
+'''
 
 @app.route('/reserve', methods=['GET', 'POST'])
 def reserve():
@@ -121,8 +156,32 @@ def reserve():
 
         flash(f"Reservation confirmed for {name}! Your eTicket is {eTicketNumber}", "success")
         return redirect(url_for('index'))
+    
+    # Generate dynamic seating chart
+    # Initialize empty seating chart (12 rows x 4 seats)
+    seating_chart = []
+    
+    # Create 12 rows
+    for row_index in range(12):
+        # Initialize this row with all seats open ('O')
+        current_row = []
+        for seat_index in range(4):
+            current_row.append('O')
+        
+        # Add the row to our seating chart
+        seating_chart.append(current_row)
+    
+    # Mark reserved seats with 'X'
+    reservations = Reservation.query.all()
+    for reservation in reservations:
+        row = reservation.seatRow
+        col = reservation.seatColumn
+        
+        # Make sure the indices are within bounds
+        if row >= 0 and row < 12 and col >= 0 and col < 4:
+            seating_chart[row][col] = 'X'
 
-    return render_template('reserve.html')
+    return render_template('reserve.html', seating_chart=seating_chart)
 
 
 #Run Program

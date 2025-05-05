@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Reserve Your Seat{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Reserve Your Seat</h1>
+<hr>
+
+<h2 class="text-center">Seating Chart</h2>
+
+<p class="text-center">X = Reserved Seat : O = Available Seat</p>
+
+<div class="seating-chart">
+    <pre>
+{% for row in seating_chart %}
+{{ row }}
+{% endfor %}
+    </pre>
+</div>
+
+<form action="{{ url_for('reserve') }}" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="seatRow">Choose a Row:</label>
+        <select class="form-control" id="seatRow" name="seatRow" required>
+            <option selected disabled>Choose a Row</option>
+            <option value="0">Row 1</option>
+            <option value="1">Row 2</option>
+            <option value="2">Row 3</option>
+            <option value="3">Row 4</option>
+            <option value="4">Row 5</option>
+            <option value="5">Row 6</option>
+            <option value="6">Row 7</option>
+            <option value="7">Row 8</option>
+            <option value="8">Row 9</option>
+            <option value="9">Row 10</option>
+            <option value="10">Row 11</option>
+            <option value="11">Row 12</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="seatColumn">Choose a Seat:</label>
+        <select class="form-control" id="seatColumn" name="seatColumn" required>
+            <option selected disabled>Choose a Seat</option>
+            <option value="0">Seat 1</option>
+            <option value="1">Seat 2</option>
+            <option value="2">Seat 3</option>
+            <option value="3">Seat 4</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
