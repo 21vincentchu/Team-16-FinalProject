@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<!-- header title, varies based on  -->
     {% if logged_in %}
         <h1>Administrator Dashboard</h1>
+    <!-- seating chart, displayed only if available in  -->
+        <h2>Seating Chart</h2>
+    <!-- seating chart, displayed only if available in  -->
+
+
+
     {% else %}
         <h1>Administrator Login</h1>
     {% endif %}
+
+
+    
 
     <hr>
     <form method="post">
