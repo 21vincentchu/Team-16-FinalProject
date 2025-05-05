@@ -85,7 +85,7 @@ def index():
     menu_option = request.form.get('menuOption')
     
     if menu_option == 'admin':
-        return redirect(url_for('login_post'))
+        return redirect(url_for('admin'))
     elif menu_option == 'reserve':
         return redirect(url_for('reserve'))
     return render_template('index.html')
