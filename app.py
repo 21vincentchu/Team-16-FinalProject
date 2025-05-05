@@ -67,7 +67,62 @@ def get_seating_chart():
 def calculate_total_sales():
     return 1
 
+def generate_eticket(name):
+    base ="INFOTC4320"
+    eticket = ""
+
+    for i in range(max(len(name), len(base))):
+        if i < len(name):
+            eticket += name[i]
+        if i < len(base):
+            eticket += base[i]
+    
+    return eticket.lower()
+
 #Routes
+@app.route('/', methods=['GET','POST'])
+def index():
+    menu_option = request.form.get('menuOption')
+    
+    if menu_option == 'admin':
+        return redirect(url_for('login_post'))
+    elif menu_option == 'reserve':
+        return redirect(url_for('reserve'))
+    return render_template('index.html')
+
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        admin = Admin.query.filter_by(username=username, password=password).first()
+        if admin:
+            return redirect(url_for('admin_dashboard'))
+        flash('Invalid username/password combination')
+    return render_template('admin.html')
+
+@app.route('/reserve', methods=['GET', 'POST'])
+def reserve():
+    if request.method == 'POST':
+        name = request.form['name']
+        row = int(request.form['seatRow'])
+        col = int(request.form['seatColumn'])
+
+        eTicketNumber = generate_eticket(name)
+
+        new_reservation = Reservation(
+            passengerName=name,
+            seatRow=row,
+            seatColumn=col,
+            eTicketNumber=eTicketNumber
+        )
+        db.session.add(new_reservation)
+        db.session.commit()
+
+        flash(f"Reservation confirmed for {name}! Your eTicket is {eTicketNumber}", "success")
+        return redirect(url_for('index'))
+
+    return render_template('reserve.html')
 
 
 #Run Program
