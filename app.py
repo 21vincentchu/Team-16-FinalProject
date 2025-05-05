@@ -76,7 +76,7 @@ def index():
 # Admin login GET route
 @app.route('/admin', methods=("GET", ))
 def login_get():
-    return render_template('login.html')
+    return render_template('admin.html')
 
 # Admin login POST route
 @app.route('/admin', methods=("POST", ))
@@ -101,12 +101,30 @@ def login_post():
         # get reservation list
         reservation_list = Reservation.query.all()
 
-        # return render_template('')
-        flash("Login successful!")
+    # return a render template
         return render_template('admin.html', logged_in=True, seating_chart=seating_chart, reservation_list=reservation_list)
     else:
         flash("Invalid username/password.")
         return render_template('admin.html')
+
+# delete route
+@app.route('/<res_id>/delete', methods=('GET', ))
+def delete(res_id):
+    # gather the reservation, delete the row
+    res = Reservation.query.filter_by(id=res_id).delete()
+
+    # commit changes
+    db.session.commit()
+
+    # flash a message
+    flash(f"Reservation {res_id} successfully deleted!")
+
+    # gather new page results
+    seating_chart = get_seating_chart()
+    reservation_list = Reservation.query.all()
+    
+    return render_template('admin.html', logged_in=True, seating_chart=seating_chart, reservation_list=reservation_list)
+
 
 
 #Run Program
