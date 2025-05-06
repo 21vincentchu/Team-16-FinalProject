@@ -111,7 +111,8 @@ def index():
         return redirect(url_for('login_get'))
     elif menu_option == 'reserve':
         return redirect(url_for('reserve'))
-    flash("Please select an option.")
+    else:
+        flash("Please select an option.")
     return render_template('index.html')
 
 # Admin login GET route
