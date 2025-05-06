@@ -171,7 +171,6 @@ def delete(res_id):
     return render_template('admin.html', logged_in=True, seating_chart=seating_chart, reservation_list=reservation_list)
 
 
-
 #Reservation Route
 @app.route('/reserve', methods=['GET', 'POST'])
 def reserve():
@@ -192,7 +191,7 @@ def reserve():
         db.session.commit()
 
         flash(f"Reservation confirmed for {name}! Your eTicket is {eTicketNumber}", "success")
-        return redirect(url_for('index'))
+        return redirect(url_for('reserve'))
     
     # Generate dynamic seating chart
     # Initialize empty seating chart (12 rows x 4 seats)
@@ -219,10 +218,6 @@ def reserve():
             seating_chart[row][col] = 'X'
 
     return render_template('reserve.html', seating_chart=seating_chart)
-
-
-
-
 
 #Run Program
 if __name__ == '__main__':
