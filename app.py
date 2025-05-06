@@ -141,8 +141,11 @@ def login_post():
         # get reservation list
         reservation_list = Reservation.query.all()
 
+        # get total sales
+        total_sales = calculate_total_sales()
+
     # return a render template
-        return render_template('admin.html', logged_in=True, seating_chart=seating_chart, reservation_list=reservation_list)
+        return render_template('admin.html', logged_in=True, seating_chart=seating_chart, reservation_list=reservation_list, total_sales=total_sales)
     else:
         flash("Invalid username/password.")
         return render_template('admin.html')
