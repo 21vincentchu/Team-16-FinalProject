@@ -59,13 +59,35 @@ def test_database_connection():
 
 #helper functions
 def get_cost_matrix():
-    return 1
+    '''
+    Function to generate cost matrix for flights
+    Input: none
+    Output: Returns a 12 x 4 matrix of prices
+    '''
+    cost_matrix = [[100, 75, 50, 100] for row in range(12)]
+    return cost_matrix
+    
 
 def get_seating_chart():
-    return 1
+    chart = [['O' for _ in range(4)] for _ in range(12)]
+    reservations = Reservation.query.all()
+
+    for r in reservations:
+        if 0 <= r.seatRow < 12 and 0 <= r.seatColumn < 4:
+            chart[r.seatRow][r.seatColumn] = 'X'
+    
+    return chart
 
 def calculate_total_sales():
-    return 1
+    cost_matrix = get_cost_matrix()
+    total=0
+
+    reservations = Reservation.query.all()
+    for r in reservations:
+        if 0 <= r.seatRow < 12 and 0 <= r.seatColumn < 4:
+            total += cost_matrix[r.seatRow][r.seatColumn]
+
+    return total
 
 def generate_eticket(name):
     base ="INFOTC4320"
@@ -124,6 +146,20 @@ def admin():
     return render_template('admin_login.html')
 
 #Admin Route after Login
+@app.route('/admin-dashboard')
+def admin_dashboard():
+    seating_chart = get_seating_chart()
+    reservation_list = Reservation.query.all()
+    total_sales = calculate_total_sales()
+
+    return render_template(
+        'admin.html',
+        seating_chart=seating_chart,
+        reservation_list=reservation_list,
+        total_sales=total_sales,
+        logged_in=True
+    )
+
 
 #Run Program
 if __name__ == '__main__':
