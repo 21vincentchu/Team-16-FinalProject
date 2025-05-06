@@ -7,9 +7,11 @@
         <h1>Administrator Dashboard</h1>
     <!-- seating chart, displayed only if available  -->
         <h2>Seating Chart</h2>
-        {% for row in seating_chart %}
-            <p>{{ row }}</p>
-        {% endfor %}
+        <div class="seating-chart">
+                {% for row in seating_chart %}
+                    <p>{{ row }}</p>
+                {% endfor %}
+        </div>  
     <!-- seating chart, displayed only if available  -->
         <h1>Reservation List</h1>
         {% for reservation in reservation_list %}
