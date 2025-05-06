@@ -103,8 +103,14 @@ def generate_eticket(name):
 
 #Routes
 # index route
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def index():
+    menu_option = request.form.get('menuOption')
+    
+    if menu_option == 'admin':
+        return redirect(url_for('login_get'))
+    elif menu_option == 'reserve':
+        return redirect(url_for('reserve'))
     return render_template('index.html')
 
 # Admin login GET route
@@ -182,8 +188,34 @@ def reserve():
 
         flash(f"Reservation confirmed for {name}! Your eTicket is {eTicketNumber}", "success")
         return redirect(url_for('index'))
+    
+    # Generate dynamic seating chart
+    # Initialize empty seating chart (12 rows x 4 seats)
+    seating_chart = []
+    
+    # Create 12 rows
+    for row_index in range(12):
+        # Initialize this row with all seats open ('O')
+        current_row = []
+        for seat_index in range(4):
+            current_row.append('O')
+        
+        # Add the row to our seating chart
+        seating_chart.append(current_row)
+    
+    # Mark reserved seats with 'X'
+    reservations = Reservation.query.all()
+    for reservation in reservations:
+        row = reservation.seatRow
+        col = reservation.seatColumn
+        
+        # Make sure the indices are within bounds
+        if row >= 0 and row < 12 and col >= 0 and col < 4:
+            seating_chart[row][col] = 'X'
 
-    return render_template('reserve.html')
+    return render_template('reserve.html', seating_chart=seating_chart)
+
+
 
 
 
