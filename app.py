@@ -160,10 +160,6 @@ def delete(res_id):
     return render_template('admin.html', logged_in=True, seating_chart=seating_chart, reservation_list=reservation_list)
 
 
-#Main Menu route
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 #Reservation Route
 @app.route('/reserve', methods=['GET', 'POST'])
@@ -189,33 +185,6 @@ def reserve():
 
     return render_template('reserve.html')
 
-
-#Admin login route
-@app.route('/admin', methods=['GET', 'POST'])
-def admin():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        admin = Admin.query.filter_by(username=username, password=password).first()
-        if admin:
-            return redirect(url_for('admin_dashboard'))
-        flash('Invalid username/password combination')
-    return render_template('admin_login.html')
-
-#Admin Route after Login
-@app.route('/admin-dashboard')
-def admin_dashboard():
-    seating_chart = get_seating_chart()
-    reservation_list = Reservation.query.all()
-    total_sales = calculate_total_sales()
-
-    return render_template(
-        'admin.html',
-        seating_chart=seating_chart,
-        reservation_list=reservation_list,
-        total_sales=total_sales,
-        logged_in=True
-    )
 
 
 #Run Program
