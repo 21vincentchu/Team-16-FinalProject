@@ -105,14 +105,16 @@ def generate_eticket(name):
 # index route
 @app.route('/', methods=['GET','POST'])
 def index():
-    menu_option = request.form.get('menuOption')
-    
-    if menu_option == 'admin':
-        return redirect(url_for('login_get'))
-    elif menu_option == 'reserve':
-        return redirect(url_for('reserve'))
-    else:
-        flash("Please select an option.")
+    if request.method == 'POST':
+        menu_option = request.form.get('menuOption')
+        
+        if menu_option == 'admin':
+            return redirect(url_for('login_get'))
+        elif menu_option == 'reserve':
+            return redirect(url_for('reserve'))
+        else:
+            flash("Select an option", "error")
+
     return render_template('index.html')
 
 # Admin login GET route
